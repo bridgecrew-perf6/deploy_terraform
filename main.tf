@@ -1,19 +1,29 @@
-## Example `main.tf`:
-## The configuration for the `remote` backend.
-terraform {
-  backend "remote" {
-    # The name of your Terraform Cloud organization.
-    organization = "example-organizat
-    # The name of the Terraform Cloud workspace to store Terraform state files in.
-    workspaces {
-      name = "example-workspace"
-    }
-}
+#### Example `main.tf`:
+#### The configuration for the `remote` backend.
+##terraform {
+##  backend "remote" {
+##    # The name of your Terraform Cloud organization.
+##    organization = "example-organizat
+##    # The name of the Terraform Cloud workspace to store Terraform state files in.
+##    workspaces {
+##      name = "example-workspace"
+##    }
+##}
 
-# An example resource that does nothing.
-resource "null_resource" "example" {
-  triggers = {
-    value = "A example resource that does nothing!"
+### An example resource that does nothing.
+##resource "null_resource" "example" {
+##  triggers = {
+##    value = "A example resource that does nothing!"
+##}
+
+
+terraform {
+  required_providers {
+    mongodbatlas = {
+      source = "mongodb/mongodbatlas"
+    }
+  }
+  required_version = ">= 0.13"
 }
 
 provider "mongodbatlas" {
